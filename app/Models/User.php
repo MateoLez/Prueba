@@ -7,20 +7,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Spatie\Permission\Traits\HasRoles;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    use HasRoles;
     use Notifiable, TwoFactorAuthenticatable;
 
     protected $fillable = [
-        'name',
-        'lastname',
+        'id',
+        'nombre',
+        'cedula',
         'email',
-        'idEmpresa',
+        'rol_id',
         'password',
     ];
 
@@ -34,9 +33,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function Empresa()
+    public function Rol()
     {
-        return $this->hasOne('App\Models\Empresa', 'id', 'idEmpresa');
+        return $this->hasOne('App\Models\Rol', 'id', 'rol_id');
     }
 
 
