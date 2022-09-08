@@ -1,0 +1,8 @@
+- composer install
+Copiar env.example y pegarlo en el mismo cambiando el nombre .env 
+Crear base de datos {{name}} poner esa misma base de datos en .env
+- php artisan key:generate
+- php migrate 
+- npm install
+- npm run dev (abierto para desarrollar)
+- php artisan serve (abierto para desarrollar)
