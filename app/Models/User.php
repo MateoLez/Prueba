@@ -33,9 +33,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function Rol()
+    public function Role()
     {
-        return $this->hasOne('App\Models\Rol', 'id', 'rol_id');
+        return $this->hasOne('App\Models\Role', 'id', 'rol_id');
     }
 
 

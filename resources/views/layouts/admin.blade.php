@@ -22,19 +22,22 @@
     </head>
     <body class="{{ $class ?? '' }}">
 
-
+        {{-- Cerrar Sesión --}}
         @auth()
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
+            {{-- Barra izquierda y Movil --}}
             @include('layouts.navbars.sidebar')
         @endauth
 
+        {{-- Barra Superior PC --}}
         <div class="main-content">
             @include('layouts.navbars.navbar')
             @yield('content')
         </div>
 
+        <script src="{{ asset('../resources/js/app.js') }}"><script>
         <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
         <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
