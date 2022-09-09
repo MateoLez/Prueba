@@ -1,7 +1,0 @@
-// Dentro de un controlador de CRUD separados con permisos y roles necesario un controlador para verificar la identidad en cada proceso
-
-public function __construct()
-{
-$this->middleware('can:*permiso*.index)->only('index'); // Permiso para ver
-$this->middleware('can:*permiso*.edit)->only('edit', 'update'); // Permiso para borrar
-}

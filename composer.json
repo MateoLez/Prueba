@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.0.2",
         "aprendible/storage-link-route": "^1.0",
+        "barryvdh/laravel-dompdf": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "illuminate/filesystem": "^9.20",
         "illuminate/support": "^9.20",

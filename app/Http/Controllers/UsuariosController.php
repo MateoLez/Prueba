@@ -7,6 +7,9 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Role;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UsuariosController extends Controller
 {
@@ -17,6 +20,18 @@ class UsuariosController extends Controller
         return view('crud.users.index', compact('users'));
     }
 
+    public function pdf()
+    {
+        Pdf::setOption(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+        $users = User::paginate();
+        $pdf = Pdf::loadView('crud.users.pdf', ['users'=>$users]);
+        return $pdf->download('Usuarios.pdf');
+    }
+
+    public function excel()
+    {
+        return Excel::download(new UsersExport, 'usuarios.xlsx');
+    }
 
     public function create()
     {

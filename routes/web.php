@@ -19,6 +19,12 @@ Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\
 
 //CRUD Usuarios
 Route::resource('users', UsuariosController::class)->except('show')->names('users');
+//CRUD Roles
 Route::resource('roles', RoleController::class)->except('show')->names('roles');
 
+//PDF Usuarios
+Route::get('users/pdf', [UsuariosController::class, 'pdf']);
+
+//Excel Usuarios
+Route::get('users/excel', [UsuariosController::class, 'excel']);
 });

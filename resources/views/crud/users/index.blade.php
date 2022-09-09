@@ -12,6 +12,8 @@
                             <h1>Lista de Usuarios</h1>
                             <div class="float-right">
                                 <a class='btn btn-info' href="{{route('users.create')}}"><i class="fa-solid fa-plus"></i> Crear Usuario</a>
+                                <a class='btn btn-danger' href="users/pdf"><i class="fa-regular fa-file-pdf"></i>  PDF</a>
+                                <a class='btn btn-success' href="users/excel"><i class="fa-regular fa-file-excel"></i>  Excel</a>
                             </div>
                         </div>
                         @if(session('info'))
